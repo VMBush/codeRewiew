@@ -3,7 +3,10 @@
 
 int main() {
   int n;
-  scanf("%d", &n);
+  if (scanf("%d", &n) != 1 || n < 0) {
+    printf("n/a");
+    return 1;
+  }
   int **m1 = (int **)malloc(sizeof(int *) * n);
   int **m2 = (int **)malloc(sizeof(int *) * n);
   int **res = (int **)malloc(sizeof(int *) * n);
@@ -15,12 +18,18 @@ int main() {
   }
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      scanf("%d", &(m1[i][j]));
+      if (scanf("%d", &(m1[i][j])) != 1) {
+        printf("n/a");
+        return 1;
+      }
     }
   }
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      scanf("%d", &(m2[i][j]));
+      if (scanf("%d", &(m2[i][j])) != 1) {
+        printf("n/a");
+        return 1;
+      }
     }
   }
 
